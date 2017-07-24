@@ -504,6 +504,13 @@ public class RadialPickerLayout extends FrameLayout implements OnTouchListener {
         if (currentShowing == HOUR_INDEX && mIs24HourMode && !isInnerCircle && degrees != 0) {
             value += 12;
         }
+if (currentShowing == HOUR_INDEX && !mIs24HourMode) {
+if (getIsCurrentlyAmOrPm() == AM) {
+value %= 12;
+} else {
+value = value % 12 + 12;
+}
+}
         return value;
     }
 
